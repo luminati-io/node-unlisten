@@ -1,0 +1,33 @@
+{
+  "name": "unlisten",
+  "version": "1.0.0",
+  "description": "Temporarily stop accepting connections on a TCP or HTTP(S) server",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feldgendler/node-unlisten.git"
+  },
+  "dependencies": {
+    "bindings": "~1.3.0"
+  },
+  "keywords": [
+    "server",
+    "listen",
+    "accept",
+    "pause",
+    "suspend"
+  ],
+  "author": "Alexey Feldgendler <alexey@feldgendler.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feldgendler/node-unlisten/issues"
+  },
+  "homepage": "https://github.com/feldgendler/node-unlisten#readme",
+  "os": [
+    "linux"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "gypfile": true
+}
