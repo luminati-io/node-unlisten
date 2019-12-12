@@ -1,6 +1,6 @@
 {
   "name": "unlisten",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Temporarily stop accepting connections on a TCP or HTTP(S) server",
   "main": "index.js",
   "repository": {
