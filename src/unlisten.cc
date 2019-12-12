@@ -49,15 +49,19 @@ static uv_tcp_t* find_tcp(int fd){
     return state.found;
 }
 
+inline v8::Local<v8::Context> GetCurrentContext() {
+    return v8::Isolate::GetCurrent()->GetCurrentContext();
+}
+
 static void pause(const v8::FunctionCallbackInfo<v8::Value>& args){
-    int fd = args[0]->Uint32Value();
+    int fd = args[0]->Uint32Value(GetCurrentContext()).FromJust();
     uv_tcp_t* tcp = find_tcp(fd);
     if (tcp)
         set_events(tcp, POLLOUT); // libuv freaks out if we set events to 0
 }
 
 static void resume(const v8::FunctionCallbackInfo<v8::Value>& args){
-    int fd = args[0]->Uint32Value();
+    int fd = args[0]->Uint32Value(GetCurrentContext()).FromJust();
     uv_tcp_t* tcp = find_tcp(fd);
     if (tcp)
         set_events(tcp, POLLIN);
