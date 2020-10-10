@@ -72,4 +72,4 @@ static void init(v8::Local<v8::Object> exports){
     NODE_SET_METHOD(exports, "resume", resume);
 }
 
-NODE_MODULE(NODE_GYP_MODULE_NAME, init);
+NAN_MODULE_WORKER_ENABLED(NODE_GYP_MODULE_NAME, init);
