@@ -1,3 +1,4 @@
+#include <nan.h>
 #include <node.h>
 #include <v8.h>
 #include <uv.h>
@@ -67,9 +68,10 @@ static void resume(const v8::FunctionCallbackInfo<v8::Value>& args){
         set_events(tcp, POLLIN);
 }
 
-static void init(v8::Local<v8::Object> exports){
+NAN_MODULE_INIT(Init){
+    auto exports = target;
     NODE_SET_METHOD(exports, "pause", pause);
     NODE_SET_METHOD(exports, "resume", resume);
 }
 
-NAN_MODULE_WORKER_ENABLED(NODE_GYP_MODULE_NAME, init);
+NAN_MODULE_WORKER_ENABLED(unlisten, Init);
